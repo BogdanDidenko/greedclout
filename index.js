@@ -9,10 +9,10 @@ window.onload = function(){
   fetch('https://www.bitcloutpulse.com/').then(function(response, body){
     response.text().then((data)=>{
       var $ = document.getElementById.bind(document)
-      var x1 = 0, x2 = 0, y = 0;
       bitclout_price = get_token_price(data)
       $('price').innerHTML = '' + bitclout_price
       $('compute').onclick = function(){
+        var x1 = 0, x2 = 0, y = 0;
         let current_token_price = parseFloat($('current_token_price').value.replace(',', '.'))
         if (current_token_price > 0) {
           y = current_token_price
