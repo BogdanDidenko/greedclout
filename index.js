@@ -5,6 +5,15 @@ function get_token_price(data){
   return parseFloat(data.slice(start_pos + substr.length, start_pos + substr.length + end_pos))
 }
 
+function to_float(_num) {
+  var resPrice;
+  if (_num.includes('.') == false) {
+    resPrice = _num.replace(',', '.')
+  } else {
+    resPrice = _num.replace(',', '')
+  }
+  return parseFloat(resPrice)
+}
 window.onload = function(){
   fetch('https://www.bitcloutpulse.com/').then(function(response, body){
     response.text().then((data)=>{
@@ -13,13 +22,14 @@ window.onload = function(){
       $('price').innerHTML = '' + bitclout_price
       $('compute').onclick = function(){
         var x1 = 0, x2 = 0, y = 0;
-        let current_token_price = parseFloat($('current_token_price').value.replace(',', '.'))
+        let current_token_price = to_float($('current_token_price').value)
         if (current_token_price > 0) {
           y = current_token_price
           let coins_supply = (10 * Math.sqrt(10/3) * Math.sqrt(y)) / (Math.sqrt(bitclout_price))
           x1 = (0.001 * coins_supply**3) * bitclout_price
         }
-        y = parseFloat($('expected_token_price').value.replace(',', '.'))
+        y = to_float($('expected_token_price').value)
+        if (isNaN(y)) {return}
         let coins_supply = (10 * Math.sqrt(10/3) * Math.sqrt(y)) / (Math.sqrt(bitclout_price))
         x2 = (0.001 * coins_supply**3) * bitclout_price
         if (x2 <= x1) {
@@ -27,7 +37,7 @@ window.onload = function(){
           return
         }
 
-        $('out').value = '' + (x2 - x1).toFixed(2) //+ '$'
+        $('out').value =  (x2 - x1).toLocaleString() //+ '$'
       }
     })
   })
