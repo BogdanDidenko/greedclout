@@ -51,8 +51,12 @@ window.onload = function(){
     response.text().then((data)=>{
       var bitclout_price = get_token_price(data)
       setInterval(()=>{
-        bitclout_price = get_token_price(data)
-      }, 2000)
+        fetch('https://www.bitcloutpulse.com/').then(function(response, body){
+          response.text().then((data)=>{
+            bitclout_price = get_token_price(data)
+          });
+        });
+      }, 4000)
       $('.compute').on('click', (e)=>{
         e.stopPropagation();
         e.preventDefault()
