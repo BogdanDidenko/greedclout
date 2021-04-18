@@ -54,13 +54,18 @@ window.onload = function(){
     // response.text().then((data)=>{
   data = ''
   var bitclout_price = get_token_price(data)
-  setInterval(()=>{
-    fetch('https://www.bitcloutpulse.com/').then(function(response, body){
-      response.text().then((data)=>{
-        bitclout_price = get_token_price(data)
-      });
-    });
-  }, 1000)
+  // setInterval(()=>{
+  //   fetch('https://bitclout.com/', {
+  //     mode: 'cors',
+  //     headers: {
+  //       'Access-Control-Allow-Origin':'*'
+  //     }
+  //   }).then(function(response, body){
+  //     response.text().then((data)=>{
+  //       bitclout_price = get_token_price(data)
+  //     });
+  //   });
+  // }, 1000)
   $('.compute').on('click', (e)=>{
     e.stopPropagation();
     e.preventDefault()
