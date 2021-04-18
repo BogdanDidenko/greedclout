@@ -5,6 +5,7 @@ window.onload = function(){
     end_pos = data.slice(start_pos + substr.length).indexOf('USD');
     bitclout_price = parseFloat(data.slice(start_pos + substr.length, start_pos + substr.length + end_pos));
     $('#price').html('' + bitclout_price);
+    if (isNaN(bitclout_price)) {return 157.90}
     return bitclout_price;
   }
 
