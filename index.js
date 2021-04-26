@@ -1,4 +1,6 @@
 window.onload = function(){
+  var bitclout_price = 153.45
+
   function get_token_price(data){
     data = JSON.parse(data)
     bitclout_price = data.data.bitclout_price.bitclout_bitcoin_exchange_rate * data.data.bitclout_price.bitcoin_usd_exchange_rate
@@ -52,16 +54,8 @@ window.onload = function(){
       return [expected_usd_locked - usd_locked, null];
     }
   }
-  fetch('https://cloutcompare.com/api/bitclout/price').then(function(response, body){
-    response.text().then((data)=>{
-    var bitclout_price = get_token_price(data)
-    setInterval(()=>{
-      fetch('https://cloutcompare.com/api/bitclout/price').then(function(response, body){
-        response.text().then((data)=>{
-          bitclout_price = get_token_price(data)
-        });
-      });
-    }, 10000)
+
+  function main() {
     $('.compute').on('click', (e)=>{
       e.stopPropagation();
       e.preventDefault()
@@ -85,7 +79,22 @@ window.onload = function(){
       }
       $('#'+action+'_out').val(out_value.toLocaleString() + ' $')
     })
+  }
 
+  fetch('https://cloutcompare.com/api/bitclout/price').then(function(response, body){
+    response.text().then((data)=>{
+      bitclout_price = get_token_price(data)
+      setInterval(()=>{
+        fetch('https://cloutcompare.com/api/bitclout/price').then(function(response, body){
+          response.text().then((data)=>{
+            bitclout_price = get_token_price(data)
+          });
+        });
+      }, 10000)
+      main()
     })
-  })
+  }).catch((error) => {
+    main();
+    console.log('Current price doesn\'t find');
+  });
 }
