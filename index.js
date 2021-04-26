@@ -3,7 +3,7 @@ window.onload = function(){
 
   function get_token_price(data){
     data = JSON.parse(data)
-    bitclout_price = data.data.bitclout_price.bitclout_bitcoin_exchange_rate * data.data.bitclout_price.bitcoin_usd_exchange_rate
+    let _bitclout_price = data.data.bitclout_price.bitclout_bitcoin_exchange_rate * data.data.bitclout_price.bitcoin_usd_exchange_rate
     // substr = '$BitClout: ~$';
     // start_pos = data.indexOf(substr);
     // end_pos = data.slice(start_pos + substr.length).indexOf('USD');
@@ -11,8 +11,8 @@ window.onload = function(){
     // if (isNaN(bitclout_price)) {
     //   bitclout_price = 157.90
     // }
-    $('#price').html('' + bitclout_price.toLocaleString());
-    return bitclout_price;
+    $('#price').html('' + _bitclout_price.toLocaleString());
+    return _bitclout_price;
   }
 
   function to_float(_num) {
@@ -94,6 +94,7 @@ window.onload = function(){
       main()
     })
   }).catch((error) => {
+    $('#price').html('' + bitclout_price);
     main();
     console.log('Current price doesn\'t find');
   });
