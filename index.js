@@ -1,5 +1,6 @@
 window.onload = function(){
   var bitclout_price = 153.45
+  var get_price_api = 'https://api.cloutcompare.com/bitclout/price'
 
   function get_token_price(data){
     data = JSON.parse(data)
@@ -81,11 +82,11 @@ window.onload = function(){
     })
   }
 
-  fetch('https://cloutcompare.com/api/bitclout/price').then(function(response, body){
+  fetch(get_price_api).then(function(response, body){
     response.text().then((data)=>{
       bitclout_price = get_token_price(data)
       setInterval(()=>{
-        fetch('https://cloutcompare.com/api/bitclout/price').then(function(response, body){
+        fetch(get_price_api).then(function(response, body){
           response.text().then((data)=>{
             bitclout_price = get_token_price(data)
           });
