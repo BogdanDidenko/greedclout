@@ -60,6 +60,25 @@ h2{
     left: calc(100% - 18em);
     background-color: rgb(214 240 255);
 }
+/* .info--yellow{
+    top:10em;
+    background-color: #ffc793;
+    display: flex;
+    align-items: center;
+} */
+.subscribe--yellow{
+    /* height:100%; */
+}
+.acc_prosper:after {
+    content: '';
+    position:absolute;
+    width:32px;
+    height:31px;
+    right: -40px;
+    top: -4px;
+    background-image: url(https://www.prosperclout.com/tiny-prosperclout.png?v=2);
+    background-size: contain;
+}
 input{
     /* background-color:none; */
     background:#fcfcff!important;

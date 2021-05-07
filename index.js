@@ -64,13 +64,25 @@ window.onload = function(){
       action = target.dataset.attrValue;
       // var x1 = 0, x2 = 0, y = 0;
       var current_token_price = 0, coins_supply = 0, usd_locked = 0,
-        current_token_price = to_float($('#current_token_price').val() || '0');
+        current_token_price = to_float($('#current_token_price').val() || '0'),
+        founder_reward = to_float($('#founder_reward').val() || '0');
+
       if (current_token_price > 0) {
         coins_supply = (10 * Math.sqrt(10/3) * Math.sqrt(current_token_price)) / (Math.sqrt(bitclout_price));
         usd_locked = (0.001 * coins_supply**3) * bitclout_price;
       }
       input_value = to_float($('#'+ action +'_amount').val());
-      if (isNaN(input_value)) {return}
+      if (isNaN(input_value) || isNaN(founder_reward)) {return}
+      if (action == 'buy') {
+        input_value *= (1 - (founder_reward / 100));
+      }
+      if (action == 'range') {
+        if (founder_reward === 100) {
+          $('#'+action+'_out').val('infinity $')
+          return;
+        }
+        input_value *= 1 / (1 - (founder_reward / 100)); //(input_value * (founder_reward / 100))
+      }
       // debugger
       res = compute_actions[action](current_token_price, coins_supply, usd_locked, input_value, bitclout_price)
       let out_value = res[0], error = res[1];

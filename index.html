@@ -75,19 +75,20 @@
         Have you wondered how much a <span style="white-space: nowrap;">Creator Coin</span> will cost after you <b>buy</b> or <b>sell</b> it for a certain sum?
         Or maybe you want to know the amount of investment required to increase the Creator Coin price to some certain price?
         GreedClout will help you make Bitclout more predictable.<br/>
-        <i>NOTE:</i> Founder Reward Percentage is irrelevant for pricing. It's only affects the token’s distribution.
+        <!-- <i>NOTE:</i> Founder Reward Percentage is irrelevant for pricing. It's only affects the token’s distribution. -->
 
     </p>
     </header>
     <section class="main">
       <section class="form-container top-form-container">
         <form action="" class="" style="padding: 10px" name="form">
-          <input type="hidden" id="siteId" name="siteId" value="326832">
-          <input type="hidden" id="pageId" name="pageId" value="326833">
           <div class="u-form-group u-form-name">
-
             <label for="name-55d7" class="u-label">Сurrent Coin Price $</label>
             <input autocomplete="off" type="number" id="current_token_price" placeholder="0" id="name-55d7" name="name" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" >
+          </div>
+          <div class="u-form-group u-form-name" style="margin-top:15px;">
+            <label for="name-55d7" class="u-label">Founder Reward %</label>
+            <input autocomplete="off" type="number" id="founder_reward" placeholder="0" id="name-55d7" name="name" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" >
           </div>
         </form>
       </section>
@@ -155,99 +156,8 @@
       <div class='price_wrapper'>$BitClout Price ~$<span id="price"></span></div>
       <div class='subscribe'><a target="_blank" href="https://bitclout.com/u/transhumanist">Follow me <span class='acc'>@transhumanist</span></a></div>
     </section>
-    <!-- <section class="u-clearfix u-section-1" id="sec-a506">
-      <div class="u-clearfix u-sheet u-valign-middle u-sheet-1">
-        <div class="u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
-          <div class="u-layout">
-            <div class="u-layout-row">
-              <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-35 u-layout-cell-1">
-                <div class="u-container-layout u-valign-top u-container-layout-1">
-                  <h4 class="u-text u-text-3" style="margin: 20px 121px 0 0;">Compute amount of investment required to increase coin price to expected value.</h4>
-
-                </div>
-                <div class="u-container-layout u-valign-top u-container-layout-2">
-                  <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-15 u-layout-cell-1">
-                    <div class="u-expanded-width u-form u-form-3 u-size-15">
-                      <form action="" class="u-clearfix u-form-spacing-20 u-form-vertical u-inner-form" style="padding: 10px" source="email" name="form">
-                        <div class="u-form-group u-form-name">
-                          <label for="name-55d7" class="u-label">Expected token price $</label>
-                          <input autocomplete="off" type="text" id="expected_token_price" placeholder="120" id="name-55d7" name="name" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
-                        </div>
-                        <div class="u-align-left u-form-group u-form-submit">
-                          <a href="#" class="u-border-3 u-border-grey-60 u-btn u-btn-submit u-button-style u-none u-btn-1">Compute</a>
-                          <input id="compute" type="submit" value="compute" class="u-form-control-hidden">
-                        </div>
-                        <div class="u-form-group u-form-name"></div>
-                        <div class="u-form-group u-form-name">
-                          <label for="name-55d7" class="u-label">Need invest $</label>
-                          <input  autocomplete="off" id="out" type="text" readonly placeholder="Result" id="name-55d7" name="name" class="u-output u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                  <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-15 u-layout-cell-2">
-                    <div class="u-expanded-width u-form u-form-3 u-size-15">
-                      <form action="" class="u-clearfix u-form-spacing-20 u-form-vertical u-inner-form" style="padding: 10px" source="email" name="form">
-                        <div class="u-form-group u-form-name">
-                          <label for="name-55d7" class="u-label">Expected token price $</label>
-                          <input autocomplete="off" type="text" id="expected_token_price" placeholder="120" id="name-55d7" name="name" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
-                        </div>
-                        <div class="u-align-left u-form-group u-form-submit">
-                          <a href="#" class="u-border-3 u-border-grey-60 u-btn u-btn-submit u-button-style u-none u-btn-1">Compute</a>
-                          <input id="compute" type="submit" value="compute" class="u-form-control-hidden">
-                        </div>
-                        <div class="u-form-group u-form-name"></div>
-                        <div class="u-form-group u-form-name">
-                          <label for="name-55d7" class="u-label">Need invest $</label>
-                          <input  autocomplete="off" id="out" type="text" readonly placeholder="Result" id="name-55d7" name="name" class="u-output u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                  <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-15 u-layout-cell-3">
-                    <div class="u-expanded-width u-form u-form-3 u-size-15">
-                      <form action="" class="u-clearfix u-form-spacing-20 u-form-vertical u-inner-form" style="padding: 10px" source="email" name="form">
-                        <div class="u-form-group u-form-name">
-                          <label for="name-55d7" class="u-label">Expected token price $</label>
-                          <input autocomplete="off" type="text" id="expected_token_price" placeholder="120" id="name-55d7" name="name" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
-                        </div>
-                        <div class="u-align-left u-form-group u-form-submit">
-                          <a href="#" class="u-border-3 u-border-grey-60 u-btn u-btn-submit u-button-style u-none u-btn-1">Compute</a>
-                          <input id="compute" type="submit" value="compute" class="u-form-control-hidden">
-                        </div>
-                        <div class="u-form-group u-form-name"></div>
-                        <div class="u-form-group u-form-name">
-                          <label for="name-55d7" class="u-label">Need invest $</label>
-                          <input  autocomplete="off" id="out" type="text" readonly placeholder="Result" id="name-55d7" name="name" class="u-output u-border-1 u-border-grey-30 u-input u-input-rectangle u-white" required="">
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="u-align-left u-container-style u-layout-cell u-right-cell u-size-25 u-layout-cell-3">
-                <div class="u-container-layout u-valign-middle u-container-layout-2">
-                  <h2 class="u-text u-text-2">$BitClout Price ~$<span id="price"></span> USD per coin</h2><span class="u-grey-30 u-icon u-icon-rounded u-radius-10 u-spacing-10 u-icon-1" id='logo'></span>
-                  <p class="u-text u-text-3" style="margin:20px 251px 0 0"><b>BitClout</b>
-                    <br><a target="_blank" href="https://bitclout.com/u/transhumanist">@transhumanist</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> -->
-
-    <!-- <section class="u-backlink u-clearfix u-grey-80">
-      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
-        <span>Website Templates</span>
-      </a>
-      <p class="u-text">
-        <span>created with</span>
-      </p>
-      <a class="u-link" href="https://nicepage.com/" target="_blank">
-        <span>Website Builder Software</span>
-      </a>.
+    <!-- <section class='info info--yellow'>
+      <a target="_blank" href="https://bitclout.com/u/transhumanist"><div class='subscribe subscribe--yellow'>Advanced Calculator <span class='acc_prosper'></span></div></a>
     </section> -->
 
   </body>
