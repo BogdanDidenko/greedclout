@@ -81,7 +81,7 @@ window.onload = function(){
           $('#'+action+'_out').val('infinity $')
           return;
         }
-        input_value *= 1 / (1 - (founder_reward / 100)); //(input_value * (founder_reward / 100))
+        input_value = current_token_price + ((input_value - current_token_price) * (1 / (1 - (founder_reward / 100)))); //(input_value * (founder_reward / 100))
       }
       // debugger
       res = compute_actions[action](current_token_price, coins_supply, usd_locked, input_value, bitclout_price)
