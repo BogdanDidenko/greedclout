@@ -49,10 +49,10 @@ window.onload = function(){
       }
       return [cumpute_expected_token_price(expected_usd_locked, bitclout_price), null];
     },
-    'range': (current_token_price, coins_supply, usd_locked, input_value, bitclout_price) => {
+    'range': (current_token_price, coins_supply, usd_locked, input_value, bitclout_price, founder_reward) => {
       let expected_supply = (10 * Math.sqrt(10/3) * Math.sqrt(input_value)) / (Math.sqrt(bitclout_price))
       let expected_usd_locked = (0.001 * expected_supply**3) * bitclout_price
-      return [expected_usd_locked - usd_locked, null];
+      return [(expected_usd_locked  - usd_locked ) * (1 / (1 - (founder_reward / 100))), null];
     }
   }
 
@@ -81,10 +81,10 @@ window.onload = function(){
           $('#'+action+'_out').val('infinity $')
           return;
         }
-        input_value = current_token_price + ((input_value - current_token_price) * (1 / (1 - (founder_reward / 100)))); //(input_value * (founder_reward / 100))
+        // input_value = current_token_price + ((input_value - current_token_price) * (1 / (1 - (founder_reward / 100)))); //(input_value * (founder_reward / 100))
       }
       // debugger
-      res = compute_actions[action](current_token_price, coins_supply, usd_locked, input_value, bitclout_price)
+      res = compute_actions[action](current_token_price, coins_supply, usd_locked, input_value, bitclout_price, founder_reward)
       let out_value = res[0], error = res[1];
       if (error != null) {
         alert(error)
