@@ -1,10 +1,10 @@
 window.onload = function(){
   var bitclout_price = 153.45
-  var get_price_api = 'https://api.cloutcompare.com/bitclout/price'
+  var get_price_api = 'https://cloutmegazord.com/api/getExchangeRate'
 
   function get_token_price(data){
-    data = JSON.parse(data)
-    let _bitclout_price = data.data.bitclout_price.bitclout_bitcoin_exchange_rate * data.data.bitclout_price.bitcoin_usd_exchange_rate
+    // data = JSON.parse(data)
+    let _bitclout_price = data.USDbyBTCLT;
     // substr = '$BitClout: ~$';
     // start_pos = data.indexOf(substr);
     // end_pos = data.slice(start_pos + substr.length).indexOf('USD');
@@ -94,13 +94,26 @@ window.onload = function(){
     })
   }
 
-  fetch(get_price_api).then(function(response, body){
-    response.text().then((data)=>{
-      bitclout_price = get_token_price(data)
+  fetch(get_price_api, {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({data:{}})
+  }).then(function(response, body){
+    response.json().then((data)=>{
+      bitclout_price = get_token_price(data.data)
       setInterval(()=>{
-        fetch(get_price_api).then(function(response, body){
-          response.text().then((data)=>{
-            bitclout_price = get_token_price(data)
+        fetch(get_price_api, {
+          method: 'POST',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({data:{}})}).then(function(response, body){
+          response.json().then((data)=>{
+            bitclout_price = get_token_price(data.data)
           });
         });
       }, 10000)
