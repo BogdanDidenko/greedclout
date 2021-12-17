@@ -4,7 +4,7 @@ window.onload = function(){
 
   function get_token_price(data){
     // data = JSON.parse(data)
-    let _bitclout_price = data.USDbyBTCLT;
+    let _bitclout_price = data.USDbyDeSo;
     // substr = '$BitClout: ~$';
     // start_pos = data.indexOf(substr);
     // end_pos = data.slice(start_pos + substr.length).indexOf('USD');
